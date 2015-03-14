@@ -1,0 +1,29 @@
+关于API当前的结构（暂时）
+
+结构关系有两种选择， 一种通过key来连接，一种通过子结构嵌入。
+对于需要大量操作和运算的表，单独作为一个结构，将其key 存入父结构中。
+
+当前的Usermodel 里保存有其他结构的key，而其他结构里都保存有User的mUserID。
+Usermodel 里有一个自己的TagsModel，存储了其希望交往对象的tags信息，而其自身的tags 存在tagsmodel表中。
+
+
+
+
+
+1. 操作 后台 数据库 
+
+vast-reality-821 是 appengine project ID 
+
+vast-reality-821.appspot.com/_ah/api/explorer
+
+2. depoly 之后的debug， 
+
+进入程序 管理页面， 大概地址如下
+https://console.developers.google.com/project/vast-reality-821?authuser=1
+
+选择 左边 的monitoring， 然后选择 logs。 
+
+
+3. 打包后台API
+
+endpointscfg.py get_client_lib java -o . file_name.api_class_name
